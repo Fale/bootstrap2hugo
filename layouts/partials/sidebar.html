@@ -27,7 +27,7 @@
     {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
     {{ if in $.Site.Params.TaxonomiesInSidebar $taxonomyname }}
     <div class="well">
-        <h3>{{ $taxonomyname }}</h3>
+        <h3 class="text-capitalize">{{ $taxonomyname }}</h3>
         <ul class="list-unstyled">
         {{ range $name, $value := $taxonomy }}
             <li><a href="/{{ $taxonomyname }}/{{ $name | urlize }}">{{ $name }}</a></li>
