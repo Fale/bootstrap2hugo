@@ -7,7 +7,7 @@
                             {{ else }}
                             &copy; {{ .Site.Params.LaunchYear }}-{{ .Site.LastChange.Year }} {{ .Site.Params.Copyright }}<br />
                             {{ end }}
-                            {{ if .Site.Params.PoweredByHugo }}
+                            {{ if and (.Site.Params.PoweredByHugo) (eq .Site.Params.PoweredByHugo "True") }}
                             Powered by <a href="http://gohugo.io" target="_blank">Hugo</a><br />
                             {{ end }}
                             <a href="/privacy">Privacy</a>
@@ -21,7 +21,6 @@
         <script src="/js/jquery-2.2.0.min.js"></script>
         <script src="/js/bootstrap-3.3.6.min.js"></script>
         {{ partial "additional_js.html" . }}
-        <script>hljs.initHighlightingOnLoad();</script>
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
