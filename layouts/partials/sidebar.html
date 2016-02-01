@@ -1,13 +1,16 @@
 <aside class="col-md-4">
 
+    {{ if .Site.Menus.main }}
     <div class="well">
-        <h3>Latest posts</h3>
+        <h3>Main menu</h3>
         <ul class="list-unstyled">
-        {{ range first 10 .Site.Pages }}
-            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-        {{ end }}
+        {{ $currentNode := . }}
+        {{ range .Site.Menus.main }}
+            <li>{{ .Pre }}<a href="{{.URL}}">{{ .Name }}</a></li>
+        {{end}}
         </ul>
     </div>
+    {{ end }}
 
     {{ if .Site.Menus.social }}
     <div class="well">
@@ -21,22 +24,17 @@
     </div>
     {{ end }}
 
+    {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
+    {{ if in $.Site.Params.TaxonomiesInSidebar $taxonomyname }}
     <div class="well">
-        <h3>Categories</h3>
+        <h3>{{ $taxonomyname }}</h3>
         <ul class="list-unstyled">
-        {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
-            <li><a href="/categories/{{ $name | urlize }}">{{ $name }}</a></li>
+        {{ range $name, $value := $taxonomy }}
+            <li><a href="/{{ $taxonomyname }}/{{ $name | urlize }}">{{ $name }}</a></li>
         {{ end }}
         </ul>
     </div>
-
-    <div class="well">
-        <h3>Tags</h3>
-        <ul class="list-unstyled">
-        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-            <li><a href="/tags/{{ $name | urlize }}">{{ $name }}</a></li>
-        {{ end }}
-        </ul>
-    </div>
+    {{ end }}
+    {{ end }}
 
 </aside>
