@@ -1,0 +1,18 @@
+{{ partial "header.html" . }}
+
+<div class="row">
+    <div class="col-lg-8">
+
+      <header class="title"><h1>{{ .Title }}</h1></header>
+
+      <div class="articles">
+          {{ range (.Paginate .Data.Pages).Pages }}
+            {{ .Render "li" }}
+          {{ end }}
+      </div>
+
+      {{ partial "pagination.html" . }}
+    </div>
+    {{ partial "sidebar.html" . }}
+</div>
+{{ partial "footer.html" . }}

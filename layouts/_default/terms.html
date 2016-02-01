@@ -1,0 +1,15 @@
+{{ partial "header.html" . }}
+
+<div class="row">
+    <div class="col-lg-8">
+
+      <header class="title"><h1>{{ .Title }}</h1></header>
+
+      {{ range $key, $value := .Data.Terms }}
+      <a href="/{{ $.Data.Plural }}/{{ $key | urlize }}/" class="{{ $.Data.Singular }}">{{ $key }}</a>
+      {{ end }}
+
+    </div>
+    {{ partial "sidebar.html" . }}
+</div>
+{{ partial "footer.html" . }}

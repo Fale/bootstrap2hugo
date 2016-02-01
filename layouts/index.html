@@ -1,0 +1,14 @@
+{{ partial "header.html" . }}
+
+<div class="row">
+    <div class="col-md-8">
+        {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+        {{ range $paginator.Pages }}
+            {{ .Render "li" }}
+        {{ end }}
+        {{ partial "pagination.html" . }}
+    </div>
+    {{ partial "sidebar.html" . }}
+</div>
+
+{{ partial "footer.html" . }}

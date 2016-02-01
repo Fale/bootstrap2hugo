@@ -1,0 +1,42 @@
+<aside class="col-md-4">
+
+    <div class="well">
+        <h3>Latest posts</h3>
+        <ul class="list-unstyled">
+        {{ range first 10 .Site.Pages }}
+            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+        {{ end }}
+        </ul>
+    </div>
+
+    {{ if .Site.Menus.social }}
+    <div class="well">
+        <h3>Social networks</h3>
+        <ul class="list-unstyled">
+        {{ $currentNode := . }}
+        {{ range .Site.Menus.social }}
+            <li>{{ .Pre }}<a href="{{.URL}}">{{ .Name }}</a></li>
+        {{end}}
+        </ul>
+    </div>
+    {{ end }}
+
+    <div class="well">
+        <h3>Categories</h3>
+        <ul class="list-unstyled">
+        {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+            <li><a href="/categories/{{ $name | urlize }}">{{ $name }}</a></li>
+        {{ end }}
+        </ul>
+    </div>
+
+    <div class="well">
+        <h3>Tags</h3>
+        <ul class="list-unstyled">
+        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+            <li><a href="/tags/{{ $name | urlize }}">{{ $name }}</a></li>
+        {{ end }}
+        </ul>
+    </div>
+
+</aside>
