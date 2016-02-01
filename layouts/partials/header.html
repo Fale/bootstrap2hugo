@@ -49,10 +49,15 @@
             </button>
             <a class="navbar-brand" href="/">{{ .Site.Title }}</a>
           </div>
+          {{ if .Site.Menus.top }}
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/about">About</a></li>
+            {{ $currentNode := . }}
+            {{ range .Site.Menus.top }}
+              <li>{{ .Pre }}<a href="{{.URL}}">{{ .Name }}</a></li>
+            {{end}}
             </ul>
           </div><!--/.nav-collapse -->
+          {{ end }}
         </div><!--/.container-fluid -->
       </nav>
