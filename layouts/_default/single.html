@@ -35,7 +35,7 @@
                 {{ end }}
                 {{ if or (.Params.categories) (.Params.tags) }}
                     <div class="section">
-                        {{ range .Params.categories }}<i class="fa fa-folder-o"></i> <a href="{{ $.Site.BaseURL}}/tags/{{ . | urlize }}" class="tag">{{ . }}</a> {{ end }}
+                        {{ range .Params.categories }}<i class="fa fa-folder-o"></i> <a href="{{ $.Site.BaseURL}}/categories/{{ . | urlize }}" class="tag">{{ . }}</a> {{ end }}
                         {{ range .Params.tags }}<i class="fa fa-tag"></i> <a href="{{ $.Site.BaseURL}}/tags/{{ . | urlize }}" class="tag">{{ . }}</a> {{ end }}
                     </div>
                 {{ end }}
