@@ -11,6 +11,11 @@ body {
     background: #EEEEEE;
 }
 
+/* Article */
+address {
+    margin-bottom: 0px;
+}
+
 /* Sidebar */
 .navbar-default,
 .well {

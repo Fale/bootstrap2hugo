@@ -1,6 +1,8 @@
 <article class="well">
     <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-    <p><i class="fa fa-clock-o"></i> Posted on {{ $.Date.Format "January 2, 2006" }}</p>
+    <p>
+        <i class="fa fa-clock-o"></i> Posted on {{ $.Date.Format "January 2, 2006" }}{{ if .Params.location }} - <i class="fa fa-globe"></i> {{ .Params.location.city }}, {{ .Params.location.country }}{{ end }}
+    </p>
     <!-- <img class="img-responsive" src="http://placehold.it/710x230" alt=""> -->
     <p>{{ .Summary }}</p>
     <a class="btn btn-primary" href="{{ .Permalink }}">Read More <i class="fa fa-chevron-right"></i></a>

@@ -30,13 +30,21 @@
                 {{ if not .Date.IsZero }}
                 <time itemprop="datePublished" pubdate="pubdate" datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}"><i class="fa fa-clock-o"></i> Posted on {{ .Date.Format "January 2, 2006" }}</time>
                 {{ end }}
+                {{ if .Params.location }}
+                <address><i class="fa fa-globe"></i> {{ .Params.location.city }}, {{ .Params.location.country }}</address>
+                {{ end }}
+                {{ if or (.Params.categories) (.Params.tags) }}
+                    <div class="section">
+                        {{ range .Params.categories }}<i class="fa fa-folder-o"></i> <a href="{{ $.Site.BaseURL}}/tags/{{ . | urlize }}" class="tag">{{ . }}</a> {{ end }}
+                        {{ range .Params.tags }}<i class="fa fa-tag"></i> <a href="{{ $.Site.BaseURL}}/tags/{{ . | urlize }}" class="tag">{{ . }}</a> {{ end }}
+                    </div>
+                {{ end }}
             </header>
 
             <!-- <img class="img-responsive" src="http://placehold.it/710x230" alt=""> -->
             <p>{{ .Content }}</p>
 
             <aside>
-                {{ with .Params.tags }}<div class="section">{{ range . }}<a href="{{ $.Site.BaseURL}}/tags/{{ . | urlize }}" class="tag">{{ . }}</a> {{ end }}</div>{{ end }}
                 <!-- <div class="section share">
                     <a href="http://www.facebook.com/sharer.php?src=bm&u={{ .Permalink }}&t={{ .Title }}" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
                     <a href="http://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
