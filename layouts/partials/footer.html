@@ -3,9 +3,9 @@
                     <div class="col-lg-12">
                         <p>
                             {{ if eq .Site.Params.LaunchYear .Site.LastChange.Year }}
-                            &copy; {{ .Site.LastChange.Year }} {{ .Site.Params.Copyright }}<br />
+                            <span id="copyright">&copy;</span> {{ .Site.LastChange.Year }} {{ .Site.Params.Copyright }}<br />
                             {{ else }}
-                            &copy; {{ .Site.Params.LaunchYear }}-{{ .Site.LastChange.Year }} {{ .Site.Params.Copyright }}<br />
+                            <span id="copyright">&copy;</span> {{ .Site.Params.LaunchYear }}-{{ .Site.LastChange.Year }} {{ .Site.Params.Copyright }}<br />
                             {{ end }}
                             {{ if and (.Site.Params.PoweredByHugo) (eq .Site.Params.PoweredByHugo "True") }}
                             Powered by <a href="http://gohugo.io" target="_blank">Hugo</a><br />
