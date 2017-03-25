@@ -30,7 +30,7 @@
         <h3 class="text-capitalize">{{ $taxonomyname }}</h3>
         <ul class="list-unstyled">
         {{ range $name, $value := $taxonomy }}
-            <li><a href="/{{ $taxonomyname }}/{{ $name | lower | urlize }}">{{ $name }}</a></li>
+            <li><a href="/{{ $taxonomyname }}/{{ $name | urlize }}">{{ $name }}</a></li>
         {{ end }}
         </ul>
     </div>
