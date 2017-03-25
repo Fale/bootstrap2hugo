@@ -2,15 +2,21 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <p>
+                            <span id="copyright">&copy;</span>
                             {{ if eq .Site.Params.LaunchYear .Site.LastChange.Year }}
-                            <span id="copyright">&copy;</span> {{ .Site.LastChange.Year }} {{ .Site.Params.Copyright }}<br />
+                                {{ .Site.LastChange.Year }}
                             {{ else }}
-                            <span id="copyright">&copy;</span> {{ .Site.Params.LaunchYear }}-{{ .Site.LastChange.Year }} {{ .Site.Params.Copyright }}<br />
+                                {{ .Site.Params.LaunchYear }}-{{ .Site.LastChange.Year }}
                             {{ end }}
+                            {{ if .Site.Params.License }}
+                                <a href="{{ .Site.Params.License.url }}">{{ .Site.Params.License.name }}</a> -
+                            {{ end }}
+                                {{ .Site.Params.Copyright }}
+                                <br />
                             {{ if and (.Site.Params.PoweredByHugo) (eq .Site.Params.PoweredByHugo "True") }}
                             Powered by <a href="http://gohugo.io" target="_blank">Hugo</a><br />
                             {{ end }}
-                            <a href="/tos">Terms of Service</a>
+                            <a href="/cookies">Cookies policy</a>
                         </p>
                     </div>
                 </div>
