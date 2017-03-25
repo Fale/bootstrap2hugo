@@ -52,9 +52,8 @@
           {{ if .Site.Menus.top }}
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-            {{ $currentNode := . }}
             {{ range .Site.Menus.top }}
-              <li>{{ .Pre }}<a href="{{.URL}}">{{ .Name }}</a></li>
+              <li class="navbar-item {{if hasPrefix $.URL .URL }} active{{end}}">{{ .Pre }}<a href="{{ .URL }}">{{ .Name }}</a></li>
             {{end}}
             </ul>
           </div><!--/.nav-collapse -->
