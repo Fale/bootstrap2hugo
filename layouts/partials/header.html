@@ -10,9 +10,8 @@
     <meta name="description" content="{{ .Site.Params.Subtitle }}">
     <meta name="author" content="">
 
-    <link rel="stylesheet" href="/css/bootstrap-3.3.7.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-4.0.0-beta.min.css">
     <link rel="stylesheet" href="/css/theme.css">
-    <link rel="stylesheet" href="/css/site.css">
     {{ partial "additional_css.html" . }}
 
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ .Site.BaseURL }}/index.xml">
@@ -34,29 +33,26 @@
 
 <body>
 
-
     <div class="container">
-
       <!-- Static navbar -->
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">{{ .Site.Title }}</a>
-          </div>
-          {{ if .Site.Menus.top }}
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
+      <nav class="navbar navbar-expand-md navbar-light bg-light rounded mb-3">
+        <a class="navbar-brand" href="/">{{ .Site.Title }}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        {{ if .Site.Menus.top }}
+        <nav class="navbar navbar-expand-md navbar-light bg-light rounded mb-3">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-right">
             {{ range .Site.Menus.top }}
-              <li class="navbar-item {{if hasPrefix $.URL .URL }} active{{end}}">{{ .Pre }}<a href="{{ .URL }}">{{ .Name }}</a></li>
+              <li class="nav-item {{if hasPrefix $.URL .URL }} active{{end}}">{{ .Pre }}<a href="{{ .URL }}">{{ .Name }}</a></li>
             {{end}}
             </ul>
-          </div><!--/.nav-collapse -->
-          {{ end }}
-        </div><!--/.container-fluid -->
+          </div>
+        </nav>
+        {{end}}
       </nav>
+

@@ -35,3 +35,8 @@ li.navbar-item.active a {
     color: #333333 !important;
     background-color: #FFFFFF !important;
 }
+
+span#copyright {
+    display: inline-block;
+    transform: rotate(180deg);
+}
