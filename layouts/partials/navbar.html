@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light top-navbar">
+    <a class="navbar-brand" href="/">{{ .Site.Title }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    {{ if .Site.Menus.top }}
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+        {{ range .Site.Menus.top }}
+            <li class="nav-item {{if hasPrefix $.URL .URL }} active{{end}}">{{ .Pre }}<a class="nav-link" href="{{ .URL }}">{{ .Name }}</a></li>
+        {{end}}
+        </ul>
+    </div>
+    {{end}}
+</nav>

@@ -1,14 +1,33 @@
-{{ partial "header.html" . }}
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
 
-<div class="row">
-    <div class="col-md-8">
-        {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
-        {{ range $paginator.Pages }}
-            {{ .Render "li" }}
-        {{ end }}
-        {{ partial "pagination.html" . }}
-    </div>
-    {{ partial "sidebar.html" . }}
-</div>
+    <head>
+        {{ partial "head.html" . }}
+    </head>
 
-{{ partial "footer.html" . }}
+    <body>
+        <div class="container">
+            {{ partial "navbar.html" . }}
+
+            <div class="row">
+                <div class="col-md-8">
+                    {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+                    {{ range $paginator.Pages }}
+                        {{ .Render "li" }}
+                    {{ end }}
+                    {{ partial "pagination.html" . }}
+                </div>
+                <aside class="col-md-4">
+                    {{ partial "sidebar.html" . }}
+                </aside>
+            </div>
+
+            {{ partial "footer.html" . }}
+        </div>
+
+        {{ partial "scripts.html" . }}
+        {{ partial "additional_css_footer.html" . }}
+        {{ partial "additional_js.html" . }}
+        {{ partial "ga.js" . }}
+    </body>
+</html>

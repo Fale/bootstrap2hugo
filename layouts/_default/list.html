@@ -1,18 +1,39 @@
-{{ partial "header.html" . }}
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
 
-<div class="row">
-    <div class="col-lg-8">
+    <head>
+        {{ partial "head.html" . }}
+    </head>
 
-      <header class="title"><h1>{{ .Title }}</h1></header>
+    <body>
+        <div class="container">
+            {{ partial "navbar.html" . }}
 
-      <div class="articles">
-          {{ range (.Paginate .Data.Pages).Pages }}
-            {{ .Render "li" }}
-          {{ end }}
-      </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card card-body mt-4">
+                        <h1>{{ .Title }}</h1>
+                    </div>
 
-      {{ partial "pagination.html" . }}
-    </div>
-    {{ partial "sidebar.html" . }}
-</div>
-{{ partial "footer.html" . }}
+                    <div class="articles">
+                        {{ range (.Paginate .Data.Pages).Pages }}
+                          {{ .Render "li" }}
+                        {{ end }}
+                    </div>
+              
+                    {{ partial "pagination.html" . }}
+                </div>
+                <aside class="col-md-4">
+                    {{ partial "sidebar.html" . }}
+                </aside>
+            </div>
+
+            {{ partial "footer.html" . }}
+        </div>
+
+        {{ partial "scripts.html" . }}
+        {{ partial "additional_css_footer.html" . }}
+        {{ partial "additional_js.html" . }}
+        {{ partial "ga.js" . }}
+    </body>
+</html>

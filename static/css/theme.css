@@ -15,25 +15,29 @@ h1, h2, h3 {
     margin-top: 0px;
 }
 
+/* NavBar*/
+.top-navbar {
+    background: #FFFFFF !important;
+}
+
+li.navbar-item.active a {
+    color: #333333 !important;
+    background-color: #FFFFFF !important;
+}
+
 /* Article */
 address {
     margin-bottom: 0px;
 }
 
 /* Sidebar */
-.navbar-default,
 .well {
-    background: #FFFFFF;
+    background: #FFFFFF !important;
 }
 
 /* Footer */
 footer {
     text-align: center;
-}
-
-li.navbar-item.active a {
-    color: #333333 !important;
-    background-color: #FFFFFF !important;
 }
 
 span#copyright {
