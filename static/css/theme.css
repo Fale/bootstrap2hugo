@@ -39,8 +39,3 @@ address {
 footer {
     text-align: center;
 }
-
-span#copyright {
-    display: inline-block;
-    transform: rotate(180deg);
-}
