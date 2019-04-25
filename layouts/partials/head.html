@@ -4,7 +4,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"> -->
 <meta name="description" content="{{ .Site.Params.Subtitle }}">
-<meta name="author" content="">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<meta name="author" content="{{ .Site.Params.Author }}">
 
 {{ $bootstrap := resources.Get "css/bootstrap-4.3.1.min.css" }}
 {{ $fontawesome := resources.Get "css/font-awesome-5.8.1.min.css" }}
@@ -14,6 +15,7 @@
 {{ partial "additional_css.html" . }}
 
 <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ .Site.BaseURL }}/index.xml">
+
 
 {{ if eq .Page.RelPermalink "/" }}
 <title>{{ .Title }}</title>
