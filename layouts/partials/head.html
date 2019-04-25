@@ -7,10 +7,11 @@
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 <meta name="author" content="{{ .Site.Params.Author }}">
 
-{{ $bootstrap := resources.Get "css/bootstrap-4.3.1.min.css" }}
-{{ $fontawesome := resources.Get "css/font-awesome-5.8.1.min.css" }}
-{{ $theme := resources.Get "css/theme.css" }}
-{{ $css := slice $bootstrap $fontawesome $theme | resources.Concat "css/bundle.css" | resources.Minify }}
+{{ $bootstrap := resources.Get "css/bootstrap-4.3.1.min.css" | resources.Minify }}
+{{ $fontawesome := resources.Get "css/font-awesome-5.8.1.min.css" | resources.Minify }}
+{{ $syntax := resources.Get "css/syntax.css" | resources.Minify }}
+{{ $theme := resources.Get "css/theme.css" | resources.Minify }}
+{{ $css := slice $bootstrap $fontawesome $syntax $theme | resources.Concat "css/bundle.css" }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 {{ partial "additional_css.html" . }}
 

@@ -30,6 +30,12 @@ address {
     margin-bottom: 0px;
 }
 
+/* Nicer code*/
+pre.chroma {
+    padding: 5px;
+    background-color: #f8f8f8;
+}
+
 /* Sidebar */
 .well {
     background: #FFFFFF !important;
