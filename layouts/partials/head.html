@@ -6,9 +6,11 @@
 <meta name="description" content="{{ .Site.Params.Subtitle }}">
 <meta name="author" content="">
 
-<link rel="stylesheet" href="/css/bootstrap-4.3.1.min.css">
-<link rel="stylesheet" href="/css/theme.css">
-<link rel="stylesheet" href="/css/site.css">
+{{ $bootstrap := resources.Get "css/bootstrap-4.3.1.min.css" }}
+{{ $fontawesome := resources.Get "css/font-awesome-5.8.1.min.css" }}
+{{ $theme := resources.Get "css/theme.css" }}
+{{ $css := slice $bootstrap $fontawesome $theme | resources.Concat "css/bundle.css" | resources.Minify }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
 {{ partial "additional_css.html" . }}
 
 <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ .Site.BaseURL }}/index.xml">

@@ -1,12 +1,5 @@
-<script src="/js/jquery-3.4.0.slim.min.js"></script>
-<script src="/js/popper-1.15.0.min.js"></script>
-<script src="/js/bootstrap-4.3.1.min.js"></script>
-<script>
-    (function() {
-        var css = document.createElement('link');
-        css.href = '/css/font-awesome-5.8.1.min.css';
-        css.rel = 'stylesheet';
-        css.type = 'text/css';
-        document.getElementsByTagName('head')[0].appendChild(css);
-    })();
-</script>
+{{ $jquery := resources.Get "js/jquery-3.4.0.slim.min.js" }}
+{{ $popper := resources.Get "js/popper-1.15.0.min.js" }}
+{{ $bootstrap := resources.Get "js/bootstrap-4.3.1.min.js" }}
+{{ $js := slice $jquery $popper $bootstrap | resources.Concat "js/bundle.js" | resources.Minify }}
+<script src="{{ $js.RelPermalink }}"></script>
