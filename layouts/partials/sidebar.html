@@ -5,7 +5,7 @@
         <ul class="list-unstyled">
         {{ $currentNode := . }}
         {{ range .Site.Menus.main }}
-            <li>{{ .Pre }}<a href="{{.URL}}">{{ .Name }}</a></li>
+            <li>{{ .Pre }}<a href="{{ .URL }}">{{ .Name }}</a></li>
         {{end}}
         </ul>
     </div>
@@ -19,7 +19,7 @@
         <ul class="list-unstyled">
         {{ $currentNode := . }}
         {{ range .Site.Menus.social }}
-            <li>{{ .Pre }}<a href="{{.URL}}">{{ .Name }}</a></li>
+            <li>{{ .Pre }}<a href="{{ .URL }}">{{ .Name }}</a></li>
         {{end}}
         </ul>
     </div>
