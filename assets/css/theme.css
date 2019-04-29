@@ -37,6 +37,14 @@ pre.chroma {
 }
 
 /* Sidebar */
+div.sidebar h3 {
+    margin-bottom: 8px !important;
+}
+
+div.sidebar ul {
+    margin-bottom: 0;
+}
+
 .well {
     background: #FFFFFF !important;
 }
