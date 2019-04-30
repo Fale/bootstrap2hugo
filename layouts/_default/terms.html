@@ -1,15 +1,35 @@
-{{ partial "header.html" . }}
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
 
-<div class="row">
-    <div class="col-lg-8">
+    <head>
+        {{ partial "head.html" . }}
+    </head>
 
-      <header class="title"><h1>{{ .Title }}</h1></header>
+    <body>
+        <div class="container">
+            {{ partial "navbar.html" . }}
 
-      {{ range $key, $value := .Data.Terms }}
-      <a href="/{{ $.Data.Plural }}/{{ $key | urlize }}/" class="{{ $.Data.Singular }}">{{ $key }}</a>
-      {{ end }}
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h1>{{ .Title }}</h1>
+                    </div>
 
-    </div>
-    {{ partial "sidebar.html" . }}
-</div>
-{{ partial "footer.html" . }}
+                    {{ range $key, $value := .Data.Terms }}
+                    <a href="/{{ $.Data.Plural }}/{{ $key | urlize }}/" class="{{ $.Data.Singular }}">{{ $key }}</a>
+                    {{ end }}
+                </div>
+                <aside class="col-md-4">
+                    {{ partial "sidebar.html" . }}
+                </aside>
+            </div>
+
+            {{ partial "footer.html" . }}
+        </div>
+
+        {{ partial "scripts.html" . }}
+        {{ partial "additional_css_footer.html" . }}
+        {{ partial "additional_js.html" . }}
+        {{ partial "ga.js" . }}
+    </body>
+</html>

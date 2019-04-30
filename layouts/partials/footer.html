@@ -1,41 +1,23 @@
-            <footer>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <p>
-                            <span id="copyright">&copy;</span>
-                            {{ if eq .Site.Params.LaunchYear .Site.LastChange.Year }}
-                                {{ .Site.LastChange.Year }}
-                            {{ else }}
-                                {{ .Site.Params.LaunchYear }}-{{ .Site.LastChange.Year }}
-                            {{ end }}
-                            {{ if .Site.Params.License }}
-                                <a href="{{ .Site.Params.License.url }}">{{ .Site.Params.License.name }}</a> -
-                            {{ end }}
-                                {{ .Site.Params.Copyright }}
-                                <br />
-                            {{ if and (.Site.Params.PoweredByHugo) (eq .Site.Params.PoweredByHugo "True") }}
-                            Powered by <a href="http://gohugo.io" target="_blank">Hugo</a><br />
-                            {{ end }}
-                            <a href="/cookies">Cookies policy</a>
-                        </p>
-                    </div>
-                </div>
-            <!-- /.row -->
-            </footer>
+<footer class="mt-4">
+    <div class="row">
+        <div class="col-lg-12">
+            <p>
+                <span id="copyright">&copy;</span>
+                {{ if eq .Site.Params.LaunchYear .Site.LastChange.Year }}
+                    {{ .Site.LastChange.Year }}
+                {{ else }}
+                    {{ .Site.Params.LaunchYear }}-{{ .Site.LastChange.Year }}
+                {{ end }}
+                {{ if .Site.Params.License }}
+                    <a href="{{ .Site.Params.License.url }}">{{ .Site.Params.License.name }}</a> -
+                {{ end }}
+                    {{ .Site.Params.Author }}. {{ .Site.Params.Copyright }}
+                    <br />
+                {{ if and (.Site.Params.PoweredByHugo) (eq .Site.Params.PoweredByHugo "True") }}
+                Powered by <a href="http://gohugo.io" target="_blank">Hugo</a><br />
+                {{ end }}
+                <a href="/cookies">Cookies policy</a>
+            </p>
         </div>
-
-        <script src="/js/jquery-3.1.1.min.js"></script>
-        <script src="/js/bootstrap-3.3.7.min.js"></script>
-        <script>
-            (function() {
-                var css = document.createElement('link');
-                css.href = '/css/font-awesome-4.7.0.min.css';
-                css.rel = 'stylesheet';
-                css.type = 'text/css';
-                document.getElementsByTagName('head')[0].appendChild(css);
-            })();
-        </script>
-        {{ partial "additional_js.html" . }}
-        {{ partial "ga.js" . }}
-    </body>
-</html>
+    </div>
+</footer>

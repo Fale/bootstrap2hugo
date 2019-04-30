@@ -1,40 +1,46 @@
-<aside class="col-md-4">
+<div class="sidebar">
 
-    {{ if .Site.Menus.main }}
-    <div class="well">
-        <h3>Main menu</h3>
-        <ul class="list-unstyled">
-        {{ $currentNode := . }}
-        {{ range .Site.Menus.main }}
-            <li>{{ .Pre }}<a href="{{.URL}}">{{ .Name }}</a></li>
-        {{end}}
-        </ul>
-    </div>
-    {{ end }}
+  {{ if .Site.Menus.main }}
+  <div class="card mt-4">
+      <div class="card-body">
+          <h3 class="my-0 font-weight-normal">Main menu</h3>
+          <ul class="list-unstyled">
+          {{ $currentNode := . }}
+          {{ range .Site.Menus.main }}
+              <li>{{ .Pre }}<a href="{{ .URL }}">{{ .Name }}</a></li>
+          {{end}}
+          </ul>
+      </div>
+  </div>
+  {{ end }}
 
-    {{ if .Site.Menus.social }}
-    <div class="well">
-        <h3>Social networks</h3>
-        <ul class="list-unstyled">
-        {{ $currentNode := . }}
-        {{ range .Site.Menus.social }}
-            <li>{{ .Pre }}<a href="{{.URL}}">{{ .Name }}</a></li>
-        {{end}}
-        </ul>
-    </div>
-    {{ end }}
+  {{ if .Site.Menus.social }}
+  <div class="card mt-4">
+      <div class="card-body">
+          <h3 class="my-0 font-weight-normal">Social networks</h3>
+          <ul class="list-unstyled">
+          {{ $currentNode := . }}
+          {{ range .Site.Menus.social }}
+              <li>{{ .Pre }}<a href="{{ .URL }}">{{ .Name }}</a></li>
+          {{end}}
+          </ul>
+      </div>
+  </div>
+  {{ end }}
 
-    {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
-    {{ if in $.Site.Params.TaxonomiesInSidebar $taxonomyname }}
-    <div class="well">
-        <h3 class="text-capitalize">{{ $taxonomyname }}</h3>
-        <ul class="list-unstyled">
-        {{ range $name, $value := $taxonomy }}
-            <li><a href="/{{ $taxonomyname }}/{{ $name | urlize }}">{{ $name }}</a></li>
-        {{ end }}
-        </ul>
-    </div>
-    {{ end }}
-    {{ end }}
+  {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
+      {{ if in $.Site.Params.TaxonomiesInSidebar $taxonomyname }}
+      <div class="card mt-4">
+          <div class="card-body">
+              <h3 class="my-0 font-weight-normal text-capitalize">{{ $taxonomyname }}</h3>
+              <ul class="list-unstyled">
+              {{ range $name, $value := $taxonomy }}
+                  <li><a href="/{{ $taxonomyname }}/{{ $name | urlize }}">{{ $name }}</a></li>
+              {{ end }}
+              </ul>
+          </div>
+      </div>
+      {{ end }}
+  {{ end }}
 
-</aside>
+</div>
