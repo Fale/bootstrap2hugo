@@ -1,3 +1,4 @@
+{{ if .Site.GoogleAnalytics }}
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.GoogleAnalytics }}"></script>
 <script>
@@ -7,3 +8,4 @@
 
   gtag('config', '{{ .Site.GoogleAnalytics }}');
 </script>
+{{ end }}
