@@ -1,5 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light top-navbar">
-    <a class="navbar-brand" href="/">{{ .Site.Title }}</a>
+    <a class="navbar-brand" href="/">
+        {{ if .Site.Params.Avatar }}<img class="avatar" src="img/avatar.png" alt="Avatar">{{ end }}
+        {{ .Site.Title }}
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>

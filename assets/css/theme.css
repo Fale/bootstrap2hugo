@@ -20,6 +20,12 @@ h1, h2, h3 {
     background: #FFFFFF !important;
 }
 
+.top-navbar img.avatar {
+    vertical-align: bottom;
+    width: 30px;
+    border-radius: 50%;
+}
+
 li.navbar-item.active a {
     color: #333333 !important;
     background-color: #FFFFFF !important;
