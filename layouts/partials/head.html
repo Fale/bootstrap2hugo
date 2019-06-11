@@ -11,8 +11,9 @@
 {{ $fontawesome := resources.Get "css/font-awesome-5.8.1.min.css" | resources.Minify }}
 {{ $syntax := resources.Get "css/syntax.css" | resources.Minify }}
 {{ $theme := resources.Get "css/theme.css" | resources.Minify }}
-{{ $css := slice $bootstrap $fontawesome $syntax $theme | resources.Concat "css/bundle.css" }}
-<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{ $CSS := slice $bootstrap $fontawesome $syntax $theme | resources.Concat "css/bundle.css" }}
+{{ $secureCSS := $CSS | resources.Fingerprint "sha512" }}
+<link rel="stylesheet" href="{{ $secureCSS.RelPermalink }}" integrity="{{ $secureCSS.Data.Integrity }}">
 {{ partial "additional_css.html" . }}
 
 <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ .Site.BaseURL }}/index.xml">
