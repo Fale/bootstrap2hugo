@@ -31,6 +31,10 @@ li.navbar-item.active a {
     background-color: #FFFFFF !important;
 }
 
+.navbar-brand {
+    white-space: normal
+}
+
 /* Article */
 address {
     margin-bottom: 0px;
