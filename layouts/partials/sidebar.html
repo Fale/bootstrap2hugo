@@ -7,7 +7,7 @@
           <ul class="list-unstyled">
           {{ $currentNode := . }}
           {{ range .Site.Menus.main }}
-              <li>{{ .Pre }}<a href="{{ .URL }}">{{ .Name }}</a></li>
+              <li>{{ .Pre }}<a href="{{ .URL }}" title="{{ .Name }}">{{ .Name }}</a></li>
           {{end}}
           </ul>
       </div>
@@ -21,7 +21,7 @@
           <ul class="list-unstyled">
           {{ $currentNode := . }}
           {{ range .Site.Menus.social }}
-              <li>{{ .Pre }}<a href="{{ .URL }}">{{ .Name }}</a></li>
+              <li>{{ .Pre }}<a href="{{ .URL }}" title="{{ .Name }}">{{ .Name }}</a></li>
           {{end}}
           </ul>
       </div>
@@ -35,7 +35,7 @@
               <h3 class="my-0 font-weight-normal text-capitalize">{{ $taxonomyname }}</h3>
               <ul class="list-unstyled">
               {{ range $name, $value := $taxonomy }}
-                  <li><a href="/{{ $taxonomyname }}/{{ $name | urlize }}">{{ $name }}</a></li>
+                  <li><a href="/{{ $taxonomyname }}/{{ $name | urlize }}" title="{{ $name }}">{{ $name }}</a></li>
               {{ end }}
               </ul>
           </div>
