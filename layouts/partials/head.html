@@ -8,7 +8,7 @@
 <meta name="author" content="{{ .Site.Params.Author }}">
 
 {{ $bootstrap := resources.Get "css/bootstrap-4.3.1.min.css" | resources.Minify }}
-{{ $fontawesome := resources.Get "css/font-awesome-5.8.1.min.css" | resources.Minify }}
+{{ $fontawesome := resources.Get "css/font-awesome-5.12.0.min.css" | resources.Minify }}
 {{ $syntax := resources.Get "css/syntax.css" | resources.Minify }}
 {{ $theme := resources.Get "css/theme.css" | resources.Minify }}
 {{ $CSS := slice $bootstrap $fontawesome $syntax $theme | resources.Concat "css/bundle.css" }}
