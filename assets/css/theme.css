@@ -36,8 +36,8 @@ li.navbar-item.active a {
 }
 
 /* Article */
-address {
-    margin-bottom: 0px;
+article aside {
+    margin-top: 5px;
 }
 
 /* Nicer code*/
