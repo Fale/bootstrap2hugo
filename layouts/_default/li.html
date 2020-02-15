@@ -2,7 +2,7 @@
     <div class="card-body">
         <h2 class="my-0 font-weight-normal"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
         <p>
-            <i class="fa fa-clock-o"></i> Posted on {{ $.Date.Format "January 2, 2006" }}{{ if .Params.location }} - <i class="fa fa-globe"></i> {{ .Params.location.city }}, {{ .Params.location.country }}{{ end }}
+            <i class="fas fa-clock"></i> {{ $.Date.Format "January 2, 2006" }}{{ if .Params.location }} - <i class="fa fa-globe"></i> {{ .Params.location.city }}, {{ .Params.location.country }}{{ end }}
         </p>
         <!-- <img class="img-responsive" src="http://placehold.it/710x230" alt=""> -->
         <p>{{ .Summary }}</p>
