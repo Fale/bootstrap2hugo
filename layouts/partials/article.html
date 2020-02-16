@@ -22,27 +22,22 @@
     </div>
     <header class="article-header">
         <h1>{{ .Title }}</h1>
-        {{ if not .Date.IsZero }}
-        <time itemprop="datePublished" pubdate="pubdate" datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}"><i class="fa fa-clock-o"></i> Posted on {{ .Date.Format "January 2, 2006" }}</time>
-        {{ end }}
-        {{ if .Params.location }}
-        <address><i class="fa fa-globe"></i> {{ .Params.location.city }}, {{ .Params.location.country }}</address>
-        {{ end }}
-        {{ if .Params.categories }}
-        <div class="section">
-            <i class="fa fa-folder-o"></i> {{ range $i, $e := sort .Params.categories }}{{if $i}}, {{end}}<a href="{{ $.Site.BaseURL}}/categories/{{ $e | urlize }}" class="tag">{{ $e }}</a>{{ end }}
-        </div>
-        {{ end }}
-        {{ if .Params.tags }}
-        <div class="section">
-            <i class="fa fa-tag"></i> {{ range $i, $e := sort .Params.tags }}{{if $i}}, {{end}}<a href="{{ $.Site.BaseURL}}/tags/{{ $e | urlize }}" class="tag">{{ $e }}</a>{{ end }}
-        </div>
-        {{ end }}
+        {{ if not .Date.IsZero }}<time itemprop="datePublished" pubdate="pubdate" datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}"><i class="fa fa-clock"></i> {{ .Date.Format "January 2, 2006" }}</time>{{ end }}{{ if .Params.location }} - <i class="fa fa-globe"></i> {{ .Params.location.city }}, {{ .Params.location.country }}{{ end }}
     </header>
 
     <!-- <img class="img-responsive" src="http://placehold.it/710x230" alt=""> -->
     {{ .Content }}
 
+    {{ if .Params.categories }}
+    <div class="section">
+        <i class="fa fa-folder"></i> {{ range $i, $e := sort .Params.categories }}{{if $i}}, {{end}}<a href="{{ $.Site.BaseURL}}/categories/{{ $e | urlize }}" class="tag">{{ $e }}</a>{{ end }}
+    </div>
+    {{ end }}
+    {{ if .Params.tags }}
+    <div class="section">
+        <i class="fa fa-tag"></i> {{ range $i, $e := sort .Params.tags }}{{if $i}}, {{end}}<a href="{{ $.Site.BaseURL}}/tags/{{ $e | urlize }}" class="tag">{{ $e }}</a>{{ end }}
+    </div>
+    {{ end }}
     <aside>
         <div class="section share">
             <a href="http://www.facebook.com/sharer.php?src=bm&u={{ .Permalink }}&t={{ .Title }}" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fab fa-facebook"></i></a>
