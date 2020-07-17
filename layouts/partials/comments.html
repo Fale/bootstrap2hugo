@@ -16,27 +16,27 @@
 {{ if .Site.Params.Swlcs }}
 {{ $resource := (replace (substr .RelPermalink "1" "-1") "/" "_") }}
 <section class="post-comments">
+    <h3>Say something</h3>
+    <form id="comment-form">
+        <div class="form-group"><input type="hidden" class="form-control" name="resource" id="resource" aria-describedby="resource" value="{{ $resource }}"></div>
+        <div class="form-group"><input type="text" class="form-control" name="name" id="name" aria-describedby="name" placeholder="Your name"></div>
+        <div class="form-group"><input type="email" class="form-control" name="email" id="email" aria-describedby="email" placeholder="Your email"></div>
+        <div class="form-group"><textarea class="form-control" id="body" name="body" rows="10" placeholder="Your message. Feel free to use Markdown."></textarea></div>
+        <button id="comment-submit" class="btn btn-primary">Submit</button>
+    </form>
+
     <h3>Comments</h3>
     {{ $comments := index $.Site.Data.comments $resource }}
     {{ range $comments }}
     <div class="card mt-4">
     <div class="card-body">
         <strong>{{ .name }}</strong> on {{ (time .date).Format "2006-01-02 15:04:05 MST" }} said:
-        <p>{{ .content | markdownify }}</p>
+        <p>{{ .body | $.Site.GetPage.RenderString }}</p>
     </div>
     </div>
     {{ else }}
     <p>Nothing yet.</p>
     {{ end }}
-
-    <h3>Say something</h3>
-    <form>
-        <div class="form-group"><input type="hidden" class="form-control" name="resource" id="resource" aria-describedby="resource" value="{{ $resource }}"></div>
-        <div class="form-group"><input type="text" class="form-control" name="name" id="name" aria-describedby="name" placeholder="Your name"></div>
-        <div class="form-group"><input type="email" class="form-control" name="email" id="email1" aria-describedby="email" placeholder="Your email"></div>
-        <div class="form-group"><textarea class="form-control" id="comment" name="comment" rows="10" placeholder="Your message. Feel free to use Markdown."></textarea></div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
 </section>
 {{ end }}
 {{ end }}
