@@ -16,7 +16,7 @@
 {{ if .Site.Params.Swlcs }}
 {{ $resource := (replace (substr .RelPermalink "1" "-1") "/" "_") }}
 <section id="comments">
-    <h3>Say something</h3>
+    <h3 id="comments-say-something">Say something</h3>
     <form id="comment-form">
         <div class="form-group"><input type="hidden" class="form-control" name="resource" id="resource" aria-describedby="resource" value="{{ $resource }}"></div>
         <div class="form-group"><input type="text" class="form-control" name="name" id="name" aria-describedby="name" placeholder="Your name"></div>
