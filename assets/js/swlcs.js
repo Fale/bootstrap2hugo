@@ -9,7 +9,7 @@ $(function() {
             contentType: 'application/json;charset=UTF-8',
             success : function(result) {
                 $("form#comment-form").hide();
-                $("<p>Thanks a lot for your comment! If the moderation is enabled, the comment has been added to the moderation queue. Otherwise, it will appear in a few minutes on the page.</p>").insertAfer("comments-say-something");
+                $("<p>Thanks a lot for your comment! If the moderation is enabled, the comment has been added to the moderation queue. Otherwise, it will appear in a few minutes on the page.</p>").insertAfter("h3#comments-say-something");
             },
             error: function(xhr, resp, text) {
                 console.log(xhr, resp, text);
