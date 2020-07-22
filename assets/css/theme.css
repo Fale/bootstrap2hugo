@@ -32,7 +32,8 @@ li.navbar-item.active a {
 }
 
 .navbar-brand {
-    white-space: normal
+    white-space: normal;
+    max-width: calc(100% - 4.5rem);
 }
 
 /* Article */
@@ -57,6 +58,11 @@ div.sidebar ul {
 
 .well {
     background: #FFFFFF !important;
+}
+
+div.sidebar h3.mobile {
+    padding-top: 5px;
+    text-align: center;
 }
 
 /* Footer */

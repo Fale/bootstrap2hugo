@@ -12,7 +12,7 @@
       </div>
   </div>
   <div class="card mt-4 d-md-none d-lg-none d-xl-none">
-      <h3 class="my-0 font-weight-normal" style="padding-top: 5px; text-align: center;">Main menu</h3>
+      <h3 class="my-0 mobile font-weight-normal">Main menu</h3>
       <ul class="list-group">
           {{ range .Site.Menus.main }}
           <a href="{{ .URL }}" title="{{ .Name }}"><li class="list-group-item">{{ .Pre }}{{ .Name }}</li></a>
@@ -33,7 +33,7 @@
       </div>
   </div>
   <div class="card mt-4 d-md-none d-lg-none d-xl-none">
-      <h3 class="my-0 font-weight-normal" style="padding-top: 5px; text-align: center;">Social networks</h3>
+      <h3 class="my-0 mobile font-weight-normal">Social networks</h3>
       <ul class="list-group">
           {{ range .Site.Menus.social }}
           <a href="{{ .URL }}" title="{{ .Name }}"><li class="list-group-item">{{ .Pre }} {{ .Name }}</li></a>
@@ -55,7 +55,7 @@
           </div>
       </div>
       <div class="card mt-4 d-md-none d-lg-none d-xl-none">
-          <h3 class="my-0 font-weight-normal text-capitalize" style="padding-top: 5px; text-align: center;">{{ $taxonomyname }}</h3>
+          <h3 class="my-0 mobile font-weight-normal text-capitalize">{{ $taxonomyname }}</h3>
           <ul class="list-group">
               {{ range $taxonomy }}
               <a href="{{ .Page.Permalink }}" title="{{ .Page.Title }}"><li class="list-group-item">{{ .Page.Title }}</li></a>
