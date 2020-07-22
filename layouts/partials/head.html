@@ -3,21 +3,23 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"> -->
+{{- if ne .Summary "" -}}
+<meta name="description" content="{{ .Summary }}">
+{{- else -}}
 <meta name="description" content="{{ .Site.Params.Subtitle }}">
+{{- end }}
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 <meta name="author" content="{{ .Site.Params.Author }}">
-
-{{ $bootstrap := resources.Get "css/bootstrap-4.3.1.min.css" | resources.Minify }}
-{{ $fontawesome := resources.Get "css/font-awesome-5.12.0.min.css" | resources.Minify }}
-{{ $syntax := resources.Get "css/syntax.css" | resources.Minify }}
-{{ $theme := resources.Get "css/theme.css" | resources.Minify }}
-{{ $CSS := slice $bootstrap $fontawesome $syntax $theme | resources.Concat "css/bundle.css" }}
-{{ $secureCSS := $CSS | resources.Fingerprint "sha512" }}
-<link rel="stylesheet" href="{{ $secureCSS.RelPermalink }}" integrity="{{ $secureCSS.Data.Integrity }}">
-{{ partial "additional_css.html" . }}
-
 <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ .Site.BaseURL }}/index.xml">
 
+{{- $bootstrap := resources.Get "css/bootstrap-4.3.1.min.css" | resources.Minify }}
+{{- $fontawesome := resources.Get "css/font-awesome-5.12.0.min.css" | resources.Minify }}
+{{- $syntax := resources.Get "css/syntax.css" | resources.Minify }}
+{{- $theme := resources.Get "css/theme.css" | resources.Minify }}
+{{- $CSS := slice $bootstrap $fontawesome $syntax $theme | resources.Concat "css/bundle.css" }}
+{{- $secureCSS := $CSS | resources.Fingerprint "sha512" }}
+<link rel="stylesheet" href="{{ $secureCSS.RelPermalink }}" integrity="{{ $secureCSS.Data.Integrity }}">
+{{ partial "additional_css.html" . }}
 
 {{ if eq .Page.RelPermalink "/" }}
 <title>{{ .Title }}</title>
@@ -28,7 +30,6 @@
 <meta property='og:title' content="{{ .Title }} - {{ .Site.Title }}">
 <meta property="og:type" content="article">
 {{ end }}
-
 <meta property="og:url" content="{{ .Permalink }}">
 {{ with .Description }}<meta name="description" content="{{ . }}">{{ end }}
 {{ with .Params.image }}<meta property="og:image" content="{{ $.Site.BaseURL }}images/{{ . }}">{{ end }}
