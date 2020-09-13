@@ -41,6 +41,12 @@ article aside {
     margin-top: 5px;
 }
 
+article img#cover {
+    margin-top: -20px;
+    margin-right: -20px;
+    margin-left: -20px;
+}
+
 /* Nicer code*/
 pre.chroma {
     padding: 5px;
