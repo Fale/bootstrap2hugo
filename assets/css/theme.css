@@ -41,10 +41,11 @@ article aside {
     margin-top: 5px;
 }
 
-article img#cover {
+img.cover {
     margin-top: -20px;
     margin-right: -20px;
     margin-left: -20px;
+    width: calc(100% + 40px);
 }
 
 /* Nicer code*/

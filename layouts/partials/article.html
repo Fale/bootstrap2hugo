@@ -1,8 +1,8 @@
 <article class="single card mt-4 card-body" itemscope="itemscope" itemtype="http://schema.org/Article">
-    {{ if .Params.Image }}<img id="cover" src="{{ .Params.Image }}" alt="">{{ end }}
+    {{ if .Params.Image }}<img class="cover" src="{{ .Params.Image }}" alt="">{{ end }}
     <header class="article-header">
         <h1>{{ .Title }}</h1>
-        {{ if not .Date.IsZero }}<time itemprop="datePublished" pubdate="pubdate" datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}"><i class="fa fa-clock"></i> {{ .Date.Format "January 2, 2006" }}</time>{{ end }}{{ if .Params.location }} - <i class="fa fa-globe"></i> {{ .Params.location.city }}, {{ .Params.location.country }}{{ end }}
+        <p>{{ if not .Date.IsZero }}<time itemprop="datePublished" pubdate="pubdate" datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}"><i class="fa fa-clock"></i> {{ .Date.Format "January 2, 2006" }}</time>{{ end }}{{ if .Params.location }} - <i class="fa fa-globe"></i> {{ .Params.location.city }}, {{ .Params.location.country }}{{ end }}</p>
     </header>
 
     {{ .Content }}

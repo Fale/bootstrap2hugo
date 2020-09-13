@@ -1,5 +1,6 @@
 <div class="card mt-4">
     <div class="card-body">
+        {{ if .Params.Image }}<img class="cover" src="{{ .Params.Image }}" alt="">{{ end }}
         <h2 class="my-0 font-weight-normal"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
         <p>
             <i class="fas fa-clock"></i> {{ $.Date.Format "January 2, 2006" }}{{ if .Params.location }} - <i class="fa fa-globe"></i> {{ .Params.location.city }}, {{ .Params.location.country }}{{ end }}
