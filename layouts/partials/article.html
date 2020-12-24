@@ -8,7 +8,10 @@
     <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
         <meta itemprop="url" content="{{ $.Site.BaseURL }}{{ .Params.Image }}"/>
     </div>
-    <div itemprop="author" itemscope itemtype="https://schema.org/Person" id="{{ .Site.Params.Author.Name }}">
+    <div itemprop="publisher" itemscope itemtype="https://schema.org/Person">
+        <meta itemprop="name" content="{{ .Site.Params.Author.Name }}">
+    </div>
+    <div itemprop="author" itemscope itemtype="https://schema.org/Person">
         <meta itemprop="name" content="{{ .Site.Params.Author.Name }}">
         <meta itemprop="givenName" content="{{ .Site.Params.Author.GivenName }}">
         <meta itemprop="familyName" content="{{ .Site.Params.Author.FamilyName }}">
