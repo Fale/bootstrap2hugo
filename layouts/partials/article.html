@@ -1,4 +1,32 @@
-<article class="single card mt-4 card-body" itemscope="itemscope" itemtype="http://schema.org/Article">
+<article class="single card mt-4 card-body" itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+    <meta itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" content="{{ .Permalink }}"/>
+    <meta itemprop="dateModified" content="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}">
+    <meta itemprop="datePublished" content="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}">
+    <meta itemprop="headline" content="{{ .Title }}">
+    <meta itemprop="description" content="{{ .Summary }}">
+    <meta itemprop="url" content="{{ .Permalink }}">
+    <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+        <meta itemprop="url" content="{{ $.Site.BaseURL }}{{ .Params.Image }}"/>
+    </div>
+    <div itemprop="author" itemscope itemtype="https://schema.org/Person" id="{{ .Site.Params.Author.Name }}">
+        <meta itemprop="name" content="{{ .Site.Params.Author.Name }}">
+        <meta itemprop="givenName" content="{{ .Site.Params.Author.GivenName }}">
+        <meta itemprop="familyName" content="{{ .Site.Params.Author.FamilyName }}">
+        <meta itemprop="birthdate" content="{{ .Site.Params.Author.Birthdate }}">
+        <meta itemprop="jobTitle" content="{{ .Site.Params.Author.JobTitle }}">
+        <meta itemprop="url" content="{{ .Site.Params.Author.URL }}">
+        {{- range $item := .Site.Params.Author.SameAs }}
+        <meta itemprop="sameAs" content="{{ $item }}">
+        {{- end }}
+        <div itemprop="worksFor" itemscope itemtype="https://schema.org/Organization">
+            <meta itemprop="name" content="{{ .Site.Params.Author.WorksFor.Name }}">
+            <meta itemprop="url" content="{{ .Site.Params.Author.WorksFor.URL }}">
+            <span itemprop="employee" itemscope itemtype="http://schema.org/Person">
+                <meta itemprop="jobTitle" content="{{ .Site.Params.Author.WorksFor.Role }}">
+                <meta itemprop="name" content="{{ .Site.Params.Author.Name }}">
+            </span>
+        </div>
+    </div>
     {{ if .Params.Image }}<img class="cover" src="{{ .Params.Image }}" alt="">{{ end }}
     <header class="article-header">
         <h1>{{ .Title }}</h1>

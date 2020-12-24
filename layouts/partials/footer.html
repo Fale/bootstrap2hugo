@@ -11,7 +11,7 @@
                 {{ if .Site.Params.License }}
                     <a href="{{ .Site.Params.License.url }}">{{ .Site.Params.License.name }}</a> -
                 {{ end }}
-                    {{ .Site.Params.Author }}. {{ .Site.Params.Copyright }}
+                    {{ .Site.Params.Author.Name }}. {{ .Site.Params.Copyright }}
                     <br />
                 {{ if and (.Site.Params.PoweredByHugo) (eq .Site.Params.PoweredByHugo "True") }}
                 Powered by <a href="http://gohugo.io" target="_blank">Hugo</a><br />
