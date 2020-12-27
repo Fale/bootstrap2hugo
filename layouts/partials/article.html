@@ -17,6 +17,16 @@
         <meta itemprop="familyName" content="{{ .Site.Params.Author.FamilyName }}">
         <meta itemprop="birthdate" content="{{ .Site.Params.Author.Birthdate }}">
         <meta itemprop="jobTitle" content="{{ .Site.Params.Author.JobTitle }}">
+        {{- range $item := .Site.Params.Author.HasOccupation }}
+        <div itemprop="hasOccupation" itemscope itemtype="https://schema.org/Occupation">
+            <meta itemprop="name" content="{{ $item.Name }}">
+            <div itemprop="occupationalCategory" itemscope itemtype="https://schema.org/CategoryCode">
+                <meta itemprop="codeValue" content="{{ $item.CodeValue }}">
+                <meta itemprop="name" content="{{ $item.CodeName }}">
+                <meta itemprop="url" content="https://www.onetonline.org/link/summary/{{ $item.CodeValue }}">
+            </div>
+        </div>
+        {{- end }}
         <meta itemprop="url" content="{{ .Site.Params.Author.URL }}">
         {{- range $item := .Site.Params.Author.SameAs }}
         <meta itemprop="sameAs" content="{{ $item }}">
